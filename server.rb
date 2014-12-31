@@ -1,8 +1,9 @@
 require 'sinatra'
 require 'csv'
 
-csv_text = File.read("freqs.csv")
-freqs = CSV.parse(csv_text, headers: true)
+
+freqs = CSV.parse(File.read("freqs.csv"), headers: true)
+doubters = CSV.parse(File.read("thomases.csv"), headers:true)
 
 def getActor(inTable)
   # roll to see who the actor is
@@ -38,6 +39,7 @@ get '/' do
   @actor = getActor(freqs)
   @how_many_researchers = rand(2..10)
   @vendors = to_sentence(SECURITY_VENDORS.sample(rand(1..@how_many_researchers)))
+  @doubter = doubters[rand(1..doubters.length-1)].to_hash
 
   erb :index
 end
