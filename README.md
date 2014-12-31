@@ -7,6 +7,12 @@ or job interview?
 
 Just fire this bad boy up and read the output.
 
+## Dependencies
+The only dependency at this time is sinatra, so you migth have to run this
+to make it work
+
+    gem install sinatra
+
 ## How to run the generator
 
     ruby server.rb
