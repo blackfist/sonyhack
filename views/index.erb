@@ -1,7 +1,12 @@
 <div class="container">
   <div class="row clearfix">
     <div class="col-md-12 column">
-      <h2>Attribution of Sony Pictures Entertainment Security Breach</h2>
+      <% if @actor['actor'] == "external" %>
+        <h2>Sony breach linked to <%= "#{@country['people'].titlecase} #{@actor['long_name']}" %>
+      <% else %>
+        <h2>Sony breach linked to <%= @actor['long_name'] %></h2>
+      <% end %>
+
       <h3>Executive Summary</h3>
 
       <p>On November 24, 2014, personally identifiable information about Sony
@@ -18,7 +23,7 @@
 
       <p>Recently, a team of <%= @how_many_researchers %> researchers from <%=
       @vendors %>   have   gathered enough evidence to state, conclusively, that <%=
-      @actor['long_name'] %> is responsible for the data breach impacting Sony
+      "#{@actor['prefix']} #{@actor['long_name']}" %> operating out of <%= @country['long_name'] %> is responsible for the data breach impacting Sony
       Pictures Entertainment.
       <% if ['State-affiliated','Nation-state'].include?(@actor['variety']) %>
         <%= erb :totally_korea %>
@@ -26,8 +31,13 @@
         <%= erb :not_korea %>
       <% end %>
 
+      <h3>Links to <%= @country['country'] %></h3>
+
       <h3>Indicators of Compromise</h3>
+      <h4>IP Indicators</h4>
       Spit out some random ip addresses from whatever country got the blame
+
+      <h4>Malware Indicators</h4>
 
 
     </div>

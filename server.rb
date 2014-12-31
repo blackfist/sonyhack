@@ -1,12 +1,14 @@
 require 'sinatra'
 require 'csv'
+require 'facets/string/titlecase'
 
 
 freqs = CSV.parse(File.read("freqs.csv"), headers: true)
 doubters = CSV.parse(File.read("thomases.csv"), headers:true)
 supporters = CSV.parse(File.read("supporters.csv"), headers:true)
+countries = CSV.parse(File.read("countries.csv"), headers: true)
 
-def getActor(inTable)
+def getRow(inTable)
   # roll to see who the actor is
   roll = rand()
   inTable.each do |row|
@@ -37,11 +39,12 @@ SECURITY_VENDORS = ["Verizon", "Norse", "Crowdstrike",
   "Qualys", "Trend Micro", "Veracode"]
 
 get '/' do
-  @actor = getActor(freqs)
+  @actor = getRow(freqs)
   @how_many_researchers = rand(2..10)
   @vendors = to_sentence(SECURITY_VENDORS.sample(rand(1..@how_many_researchers)))
   @doubter = doubters[rand(0..doubters.length-1)].to_hash
   @supporter = supporters[rand(0..supporters.length-1)].to_hash
+  @country = getRow(countries)
 
   erb :index
 end
