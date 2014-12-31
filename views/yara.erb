@@ -1,0 +1,43 @@
+<pre class="prettyprint">
+  rule SonyWiper : GuardiansOfPeace
+  {
+    meta:
+      author: "<%= "#{@doubter['first']} #{@doubter['last']}," %> <cite><%= "#{@doubter['title']}" %>"
+      description: "Detects Sony Pictures Entertainment Wiper Trojan"
+
+    strings:
+      $a = "<%= @country['country'].downcase %>" nocase
+      $b = "PRINCPES"
+      $c = "HASTATI"
+      %md5 = "<%= Digest::MD5.hexdigest(@country['country']) %>"
+      <% if @country['abr'] == "BR" %>
+      $actor = "pinto" nocase
+      <% end %>
+
+    condition:
+    <% if @country['abr'] == "BR" %>
+      $pinto or
+    <% end %>
+      $md5 or (
+      uint16(0) == 0x5A4D and
+      uint8(uint32(0x3c)+23) == 0x21 and
+      $a and
+      ($b or $c))
+  }
+
+  rule SonyExfil2 : GuardiansOfPeace
+  {
+    meta:
+      author: "<%= "#{@doubter['first']} #{@doubter['last']}," %> <cite><%= "#{@doubter['title']}" %>"
+      description: "Detects Sony Pictures Entertainment Wiper Trojan"
+    strings:
+      $a = "Tools_Android_Pacage"
+      $b = "Cyber_com_.mdb" fullword nocase
+      $c = "X:\\<%= @country['country'].downcase %>\\solutions\\new\\output\\Release\\bin\\rack-core.pdb" fullword nocase
+      %md5 = "<%= Digest::MD5.hexdigest(@country['country'].upcase) %>"
+
+    condition:
+    ($a and $b) or $c or $md5
+  }
+</pre>
+ <!-- http://eromang.zataz.com/2013/04/02/dark-south-korea-total-war-review/ -->

@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'csv'
 require 'facets/string/titlecase'
+require 'digest'
 
 
 freqs = CSV.parse(File.read("freqs.csv"), headers: true)

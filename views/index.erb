@@ -25,7 +25,7 @@
       @vendors %>   have   gathered enough evidence to state, conclusively, that <%=
       "#{@actor['prefix']} #{@actor['long_name']}" %> operating out of <%= @country['long_name'] %> is responsible for the data breach impacting Sony
       Pictures Entertainment.
-      <% if ['State-affiliated','Nation-state'].include?(@actor['variety']) %>
+      <% if ['State-affiliated','Nation-state'].include?(@actor['variety']) and @country['abr'] == "NK" %>
         <%= erb :totally_korea %>
       <% else %>
         <%= erb :not_korea %>
@@ -38,6 +38,7 @@
       Spit out some random ip addresses from whatever country got the blame
 
       <h4>Malware Indicators</h4>
+      <%= erb :yara %>
 
 
     </div>
