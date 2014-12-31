@@ -4,6 +4,7 @@ require 'csv'
 
 freqs = CSV.parse(File.read("freqs.csv"), headers: true)
 doubters = CSV.parse(File.read("thomases.csv"), headers:true)
+supporters = CSV.parse(File.read("supporters.csv"), headers:true)
 
 def getActor(inTable)
   # roll to see who the actor is
@@ -39,7 +40,8 @@ get '/' do
   @actor = getActor(freqs)
   @how_many_researchers = rand(2..10)
   @vendors = to_sentence(SECURITY_VENDORS.sample(rand(1..@how_many_researchers)))
-  @doubter = doubters[rand(1..doubters.length-1)].to_hash
+  @doubter = doubters[rand(0..doubters.length-1)].to_hash
+  @supporter = supporters[rand(0..supporters.length-1)].to_hash
 
   erb :index
 end

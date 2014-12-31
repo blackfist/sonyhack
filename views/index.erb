@@ -19,17 +19,12 @@
       <p>Recently, a team of <%= @how_many_researchers %> researchers from <%=
       @vendors %>   have   gathered enough evidence to state, conclusively, that <%=
       @actor['long_name'] %> is responsible for the data breach impacting Sony
-      Pictures Entertainment. This diclosure casts further doubt on the FBI's
-      assertion that the attack was carried out by state-sponsored actors under
-      the control of North Korea, a theory that has been all but discredited by a
-      host of security professionals since the attack became public, including
-      <%= "#{@doubter['title']} #{@doubter['first']} #{@doubter['last']}" %>.
-
-      <blockquote>
-        <p>
-          <%= "#{@doubter['quote']}" %>
-        </p> <small><%= "#{@doubter['first']} #{@doubter['last']}" %> <cite><%= "#{@doubter['title']}" %></cite></small>
-      </blockquote>
+      Pictures Entertainment.
+      <% if ['State-affiliated','Nation-state'].include?(@actor['variety']) %>
+        <%= erb :totally_korea %>
+      <% else %>
+        <%= erb :not_korea %>
+      <% end %>
 
       <h3>Indicators of Compromise</h3>
       Spit out some random ip addresses from whatever country got the blame
