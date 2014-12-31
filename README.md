@@ -8,10 +8,12 @@ or job interview?
 Just fire this bad boy up and read the output.
 
 ## Dependencies
-The only dependency at this time is sinatra, so you migth have to run this
-to make it work
+The Project is written to use Sinatra and since I normally write in Rails, I
+threw in a content_for tag that Sinatra doesn't support. Rather than rewrite
+the app, I just used the sinatra-contrib gem. So you need to install that too.
 
     gem install sinatra
+    gem install sinatra-contrib
 
 ## How to run the generator
 

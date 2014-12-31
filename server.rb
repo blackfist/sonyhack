@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra/content_for'
 require 'csv'
 require 'facets/string/titlecase'
 require 'digest'
@@ -48,4 +49,9 @@ get '/' do
   @country = getRow(countries)
 
   erb :index
+end
+
+not_found do
+  status 404
+  erb :oops
 end

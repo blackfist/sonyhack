@@ -10,14 +10,8 @@
       $b = "PRINCPES"
       $c = "HASTATI"
       %md5 = "<%= Digest::MD5.hexdigest(@country['country']) %>"
-      <% if @country['abr'] == "BR" %>
-      $actor = "pinto" nocase
-      <% end %>
 
     condition:
-    <% if @country['abr'] == "BR" %>
-      $pinto or
-    <% end %>
       $md5 or (
       uint16(0) == 0x5A4D and
       uint8(uint32(0x3c)+23) == 0x21 and
