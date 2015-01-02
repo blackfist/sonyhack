@@ -1,7 +1,7 @@
 # Sony Hack Attribution Generator
 
-So there are a lot of conflicting stories out there about who hacked Sony and
-a lot of people are being asked to weigh in with their opinion. Do you need a
+So there are quite a few conflicting stories out there about who hacked Sony and
+many "experts" being asked to weigh in with their opinion. Do you need a
 quick story you can pull out of your butt to explain the Sony hack at a party
 or job interview?
 
