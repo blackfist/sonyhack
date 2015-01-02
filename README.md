@@ -11,9 +11,12 @@ Just fire this bad boy up and read the output.
 The Project is written to use Sinatra and since I normally write in Rails, I
 threw in a content_for tag that Sinatra doesn't support. Rather than rewrite
 the app, I just used the sinatra-contrib gem. So you need to install that too.
+Oh and facets so I could get the `titlecase` function. The easiest thing to do
+is just run
 
-    gem install sinatra
-    gem install sinatra-contrib
+    bundle install
+
+to get all the dependencies installed.
 
 ## How to run the generator
 
