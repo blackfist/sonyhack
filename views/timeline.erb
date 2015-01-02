@@ -1,0 +1,15 @@
+<table class="table table-bordered table-condensed">
+  <thead>
+    <tr><th>Date</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><%= "#{MONTHS[0..10].sample(1)[0]} #{rand(1..28)}, 2014" %></td>
+        <td>Initial introduction of malware to the SPE computing environment. Malware is delivered using a "spear phishing" message targeted at a high level executive with subject line "<%= @randomSubject['subject'] %>"</td>
+    <tr><td><%= "November #{rand(1..23)}, 2014" %></td>
+        <td>Something else happened</td>
+    <tr><td>November 24, 2014</td>
+        <td>Initial release of confidential data. Data includes personal information about Sony Pictures employees and their families and copies of unreleased films.</td></tr>
+    <tr><td>December 1, 2014</td>
+        <td>SPE learns that personally identifiable information about employees and their dependents may have been obtained by unauthorized individuals as a result of the attack.</td></tr>
+  </tbody>
+</table>

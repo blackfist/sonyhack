@@ -11,6 +11,7 @@ supporters = CSV.parse(File.read("supporters.csv"), headers:true)
 countries = CSV.parse(File.read("countries.csv"), headers: true)
 trueIOC = CSV.parse(File.read("true_ioc.csv"), headers: true)
 fakeIOC = CSV.parse(File.read("ioc.csv"), headers: true)
+subjects = CSV.parse(File.read("subject_lines.csv"), headers: true)
 
 def getRow(inTable)
   # roll to see who the actor is
@@ -73,6 +74,7 @@ get '/' do
   trueIOC.each do |row|
     @trueIPS << row.to_hash
   end
+  @randomSubject = subjects[rand(0..subjects.length-1)].to_hash
 
 
   erb :index
