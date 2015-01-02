@@ -26,16 +26,43 @@
       hackers threatening acts of terrorism if the film were to be released.</p>
 
       <p>Recently, a team of <%= @how_many_researchers %> researchers from <%=
-      @vendors %>   have   gathered enough evidence to state, conclusively, that <%=
-      "#{@actor['prefix']} #{@actor['long_name']}" %> operating out of <%= @country['long_name'] %> is responsible for the data breach impacting Sony
-      Pictures Entertainment.
+      @vendors %> examined the evidence left behind by the attackers. This
+      research has provided insight into the likely source of these attacks.
+      Though not definitive, our analysis provides a much clearer picture and
+      suggests <%= "#{@actor['prefix']} #{@actor['long_name']}" %> operating
+      out of <%= @country['long_name'] %> is responsible for the data breach
+      impacting Sony Pictures Entertainment.
+
       <% if ['State-affiliated','Nation-state'].include?(@actor['variety']) and @country['abr'] == "NK" %>
         <%= erb :totally_korea %>
       <% else %>
         <%= erb :not_korea %>
       <% end %>
 
+      <p>The research team is quite certain, however, that the Guardians of
+      Peace hacker group   played no role in this attack. The clues left behind
+      confirm that the group claiming   responsiblity were a fabrication to
+      throw investigators off the trail and   to mask the true source.</p>
+
       <h3>Links to <%= @country['country'] %></h3>
+      <p>The research team was able to reconstruct the attack from the ground up and
+      discovered a number of IP addresses that are linked to other attacks that
+      have been attributed to <%= @country['country'].titlecase %> as well as the presence
+      of <%= @country['people'].titlecase %> text in the comment strings of the malware
+      that was recovered during the forensic investigation. Some of these malware
+      samples have also been used in <%= @country['people'].titlecase %> attacks.</p>
+
+      <% if @country['abr'] == "CN" %>
+      <p>Some of the Chinese strings even went so far as to taunt the executives
+        at Sony Pictures Entertainment. For example, one of the samples that
+        exfiltrated unreleased movies from the victim organization contained the
+        string "你知道这是不真的吗" which is an expression Chinese people utter whenever
+        the Japanese Prime Minister visits the Yasukuni Shrine in Japan (Sony is
+        a Japanese company).</p>
+      <% end %>
+
+      <h3>Timeline of Events</h3>
+      Put in a semi-generic timeline here.
 
       <h3>Indicators of Compromise</h3>
       <h4>IP Indicators</h4>
