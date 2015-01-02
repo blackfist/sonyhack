@@ -12,7 +12,7 @@
       <h2>Executive Summary</h2>
 
       <p>On November 24, 2014, personally identifiable information about Sony
-      Pictures Entertainment employees and their dependents, e-mails between
+      Pictures Entertainment (SPE) employees and their dependents, e-mails between
       employees, information about executive salaries at the company, copies of
       unreleased Sony films, and other information, was obtained and released by
       a hacker group going under the moniker "Guardians of Peace" or
@@ -45,10 +45,16 @@
       <h3>Links to <%= @country['country'] %></h3>
       <p>The research team was able to reconstruct the attack from the ground up and
       discovered a number of IP addresses that are linked to other attacks that
-      have been attributed to <%= @country['country'].titlecase %> as well as the presence
+      have been attributed to actors in <%= @country['country'].titlecase %> as well as the presence
       of <%= @country['people'].titlecase %> text in the comment strings of the malware
       that was recovered during the forensic investigation. Some of these malware
       samples have also been used in <%= @country['people'].titlecase %> attacks.</p>
+
+      <p>Additional signals intelligence acquired by the research team has also
+        implicated an actor based in <%= @country['country'] %>. This intelligence
+        is highly classified and cannot be released in a public document, but
+        the research team has briefed investigators with the U.S. Federal Bureau
+        of Investigation on their findings.</p>
 
       <% if @country['abr'] == "CN" %>
       <p>Some of the Chinese strings even went so far as to taunt the executives
@@ -64,13 +70,30 @@
 
       <h2>Indicators of Compromise</h2>
       <p>The following technical indicators may be used to detect malicious activity
-      linked to the Guardians of Peace hacking group. C2 addresses were either
+      linked to the <%= @actor['long_name'] %>. C2 addresses were either
       hard coded in the malware samples or derived from network observation in a
       lab environment. Additionally, network traffic analysis detected numerous
       netflow sessions between <%= @country['people'] %> ip addresses and the
       C2 servers identified from the malware analysis. Additional IP addresses
       associated with the attack are labeled TLP: <span class="label label-danger">Red</span>
       and will only be distributed to highly trusted groups.</p>
+
+      <p>Technical analysis of the data deletion malware used in this attack
+      revealed links to other malware that the FBI knows <%= @country['people'] %>
+      actors previously developed. For example, there were similarities in
+      specific lines of code, encryption algorithms, data deletion methods, and
+      compromised networks. The research team also observed significant overlap between
+      the infrastructure used in this attack and other malicious cyber activity
+      the U.S. government has previously linked directly to actors in <%= @country['country'] %>. For
+      example, the FBI discovered that several Internet protocol (IP) addresses
+      associated with known <%= @country['people'] %> infrastructure communicated with IP
+      addresses that were hardcoded into the data deletion malware used in this
+      attack.</p>
+
+      <p>Separately, the tools used in the SPE attack have similarities to a
+      cyber-attack in <%= @previousAttackMonth %> of last year against <%= @anotherCountry['people'].titlecase %> banks and media
+      outlets, which was carried out by actors in <%= @country['long_name'] %>.</p>
+
       <h3>IP Indicators</h3>
       <%= erb :ips %>
 

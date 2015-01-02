@@ -56,6 +56,9 @@ SECURITY_VENDORS = ["Verizon", "Norse", "Crowdstrike",
   "Fortinet", "iSIGHT Partners", "Check Point", "Arbor Networks",
   "Qualys", "Trend Micro", "Veracode"]
 
+MONTHS = ["January", "February", "March", "April", "May", "June", "July",
+  "August", "September", "October", "November", "December"]
+
 get '/' do
   @actor = getRow(freqs)
   @how_many_researchers = rand(2..10)
@@ -63,6 +66,8 @@ get '/' do
   @doubter = doubters[rand(0..doubters.length-1)].to_hash
   @supporter = supporters[rand(0..supporters.length-1)].to_hash
   @country = getRow(countries)
+  @anotherCountry = getRow(countries)
+  @previousAttackMonth = MONTHS.sample(1)[0]
   @fakeIPs = getRandomIPs(fakeIOC, @country['abr'])
   @trueIPS = []
   trueIOC.each do |row|
