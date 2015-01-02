@@ -9,6 +9,8 @@ freqs = CSV.parse(File.read("freqs.csv"), headers: true)
 doubters = CSV.parse(File.read("thomases.csv"), headers:true)
 supporters = CSV.parse(File.read("supporters.csv"), headers:true)
 countries = CSV.parse(File.read("countries.csv"), headers: true)
+trueIOC = CSV.parse(File.read("true_ioc.csv"), headers: true)
+fakeIOC = CSV.parse(File.read("ioc.csv"), headers: true)
 
 def getRow(inTable)
   # roll to see who the actor is
@@ -34,6 +36,20 @@ def to_sentence(inArray)
   end
 end
 
+def getRandomIPs(inTable, inCountry)
+  knownBad = ['203.131.222.102','217.96.33.165','88.53.215.64','200.87.126.116','58.185.154.99','212.31.102.100','208.105.226.235']
+  returnArray = []
+
+  inTable.each do |row|
+    if row['iso2c'] == inCountry
+      row['ip'].split(';').each do |ip|
+        returnArray << {ip: ip, description: "Communicating with #{knownBad.sample(1)[0]}"}
+      end
+    end
+  end
+  returnArray
+end
+
 SECURITY_VENDORS = ["Verizon", "Norse", "Crowdstrike",
   "iDefense", "Mandiant/FireEye", "Dell SecureWorks",
   "McAfee", "Symantec", "Kaspersky Labs", "Palo Alto Networks",
@@ -47,6 +63,12 @@ get '/' do
   @doubter = doubters[rand(0..doubters.length-1)].to_hash
   @supporter = supporters[rand(0..supporters.length-1)].to_hash
   @country = getRow(countries)
+  @fakeIPs = getRandomIPs(fakeIOC, @country['abr'])
+  @trueIPS = []
+  trueIOC.each do |row|
+    @trueIPS << row.to_hash
+  end
+
 
   erb :index
 end

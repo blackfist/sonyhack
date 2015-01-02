@@ -1,0 +1,13 @@
+<table class="table table-bordered table-condensed">
+  <thead>
+    <tr><th>IP Address</th><th>Country Geolocation</th><th>Description</th></tr>
+  </thead>
+  <tbody>
+    <% @trueIPS.each do |ip| %>
+      <tr><td><%= ip["ip"] %></td><td><%= ip["country"] %></td><td><%= ip["description"] %></td></tr>
+    <% end %>
+    <% @fakeIPs.each do |ip| %>
+      <tr><td><%= ip[:ip] %></td><td><%= @country["country"] %></td><td><%= ip[:description] %></td></tr>
+    <% end %>
+  </tbody>
+</table>

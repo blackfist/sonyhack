@@ -2,16 +2,14 @@
   Sony Breach Attributed to <%= @actor['long_name'] %>
 <% end %>
 
-<div class="container">
-  <div class="row clearfix">
-    <div class="col-md-12 column">
+
       <% if @actor['actor'] == "external" %>
-        <h2>Sony breach linked to <%= "#{@country['people'].titlecase} #{@actor['long_name']}" %>
+        <h1>Sony breach linked to <%= "#{@country['people'].titlecase} #{@actor['long_name']}" %></h1>
       <% else %>
-        <h2>Sony breach linked to <%= @actor['long_name'] %></h2>
+        <h1>Sony breach linked to <%= @actor['long_name'] %></h1>
       <% end %>
 
-      <h3>Executive Summary</h3>
+      <h2>Executive Summary</h2>
 
       <p>On November 24, 2014, personally identifiable information about Sony
       Pictures Entertainment employees and their dependents, e-mails between
@@ -61,17 +59,20 @@
         a Japanese company).</p>
       <% end %>
 
-      <h3>Timeline of Events</h3>
+      <h2>Timeline of Events</h2>
       Put in a semi-generic timeline here.
 
-      <h3>Indicators of Compromise</h3>
-      <h4>IP Indicators</h4>
-      Spit out some random ip addresses from whatever country got the blame
+      <h2>Indicators of Compromise</h2>
+      <p>The following technical indicators may be used to detect malicious activity
+      linked to the Guardians of Peace hacking group. C2 addresses were either
+      hard coded in the malware samples or derived from network observation in a
+      lab environment. Additionally, network traffic analysis detected numerous
+      netflow sessions between <%= @country['people'] %> ip addresses and the
+      C2 servers identified from the malware analysis. Additional IP addresses
+      associated with the attack are labeled TLP: <span class="label label-danger">Red</span>
+      and will only be distributed to highly trusted groups.</p>
+      <h3>IP Indicators</h3>
+      <%= erb :ips %>
 
-      <h4>Malware Indicators</h4>
+      <h3>Malware Indicators</h3>
       <%= erb :yara %>
-
-
-    </div>
-  </div>
-</div>
