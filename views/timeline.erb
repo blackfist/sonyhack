@@ -4,11 +4,15 @@
   </thead>
   <tbody>
     <tr><td><%= "#{MONTHS[0..10].sample(1)[0]} #{rand(1..28)}, 2014" %></td>
-        <td>Initial introduction of malware to the SPE computing environment. Malware is delivered using a "spear phishing" message targeted at a high level executive with subject line "<%= @randomSubject['subject'] %>"</td>
-    <tr><td><%= "November #{rand(1..23)}, 2014" %></td>
-        <td>Something else happened</td>
+        <td>Initial introduction of malware to the SPE computing environment. Malware is delivered using a "spear phishing" message targeted at a high level executive with subject line "<%= @randomSubject['subject'] %>"</td</tr>>
+    <tr><td><%= "November #{rand(1..15)}, 2014" %></td>
+        <td>Malware begins communicating with C2 server at <%= @trueIPS[rand(0..@trueIPS.length-1)]["ip"] %>. Malware begins to spread using SMB shares and credentials obtained from the C2.</td></tr>
+    <tr><td><%= "November #{rand(15..23)}, 2014" %></td>
+        <td>Exfiltration of non-public data begins. At the time the malware begins to exfiltrate data, IP addresses <%= @fakeIPs[0][:ip] %> and <%= @fakeIPs[1][:ip] %> are observed communicating with C2 infrastructure.</td></tr>
+    <tr><td>November 23, 2014</td>
+        <td>An account called GuardiansOfPeace logs into pastebin from <%= @fakeIPs[4][:ip] %>.</td></tr>
     <tr><td>November 24, 2014</td>
-        <td>Initial release of confidential data. Data includes personal information about Sony Pictures employees and their families and copies of unreleased films.</td></tr>
+        <td>Initial release of confidential data. Data includes personal information about Sony Pictures employees and their families and copies of unreleased films. An account named "GuardiansOfPeace" is used to upload the stolen data.</td></tr>
     <tr><td>December 1, 2014</td>
         <td>SPE learns that personally identifiable information about employees and their dependents may have been obtained by unauthorized individuals as a result of the attack.</td></tr>
   </tbody>

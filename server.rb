@@ -48,6 +48,7 @@ def getRandomIPs(inTable, inCountry)
       end
     end
   end
+  returnArray[-1][:description] = "Logged into pastebin using the \"GuardiansOfPeace\" login id."
   returnArray
 end
 
