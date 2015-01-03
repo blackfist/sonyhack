@@ -4,7 +4,7 @@
   </thead>
   <tbody>
     <tr><td><%= "#{MONTHS[0..10].sample(1)[0]} #{rand(1..28)}, 2014" %></td>
-        <td>Initial introduction of malware to the SPE computing environment. Malware is delivered using a "spear phishing" message targeted at a high level executive with subject line "<%= @randomSubject['subject'] %>"</td</tr>>
+        <td>Initial introduction of malware to the SPE computing environment. Malware is delivered using a "spear phishing" message targeted at a high level executive with subject line "<%= @randomSubject['subject'] %>"</td</tr>
     <tr><td><%= "November #{rand(1..15)}, 2014" %></td>
         <td>Malware begins communicating with C2 server at <%= @trueIPS[rand(0..@trueIPS.length-1)]["ip"] %>. Malware begins to spread using SMB shares and credentials obtained from the C2.</td></tr>
     <tr><td><%= "November #{rand(15..23)}, 2014" %></td>
@@ -12,7 +12,9 @@
     <tr><td>November 23, 2014</td>
         <td>An account called GuardiansOfPeace logs into pastebin from <%= @fakeIPs[4][:ip] %>.</td></tr>
     <tr><td>November 24, 2014</td>
-        <td>Initial release of confidential data. Data includes personal information about Sony Pictures employees and their families and copies of unreleased films. An account named "GuardiansOfPeace" is used to upload the stolen data.</td></tr>
+        <td>Initial release of confidential data. Data includes personal information about Sony Pictures employees and their families and copies of unreleased films. An account named "GuardiansOfPeace" is used to upload the stolen data. The wiper malware begins to display an image of a stylized skull with long skeletal fingers flashes on every employee’s computer screen.</td></tr>
+    <tr><td>November 24, 2014</td>
+        <td>In response to the malware infection, Sony shuts down computers, phones, voicemail and other IT services. It would be days before these services were brough back online.</td></tr>
     <tr><td>December 1, 2014</td>
         <td>SPE learns that personally identifiable information about employees and their dependents may have been obtained by unauthorized individuals as a result of the attack.</td></tr>
   </tbody>
