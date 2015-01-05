@@ -57,12 +57,23 @@
         of Investigation on their findings.</p>
 
       <% if @country['abr'] == "CN" %>
-      <p>Some of the Chinese strings even went so far as to taunt the executives
-        at Sony Pictures Entertainment. For example, one of the samples that
-        exfiltrated unreleased movies from the victim organization contained the
-        string "你知道这是不真的吗" which is an expression Chinese people utter whenever
-        the Japanese Prime Minister visits the Yasukuni Shrine in Japan (Sony is
-        a Japanese company).</p>
+        <%= erb :cn_actor %>
+      <% end %>
+
+      <% if @country['abr'] == "US" %>
+        <%= erb :us_actor %>
+      <% end %>
+
+      <% if @country['abr'] == "KR" %>
+        <%= erb :kr_actor %>
+      <% end %>
+
+      <% if @country['abr'] == "RU" %>
+        <%= erb :ru_actor %>
+      <% end %>
+
+      <% if @country['abr'] == "BR" %>
+        <%= erb :br_actor %>
       <% end %>
 
       <h2>Timeline of Events</h2>
