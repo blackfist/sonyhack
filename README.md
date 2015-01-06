@@ -22,7 +22,7 @@ You can review (and tweak if you like) the breach info on [freqs.csv](https://gi
 We also do a similar likelihood estimation on reported origin countries of the attacks.
 Vou can also review this information on [countries.csv](https://github.com/blackfist/sonyhack/blob/master/countries.csv).
 
-Since it is unlikely that any further evidence on this case will not be released
+Since it is unlikely that any further evidence on this case will be released
 to the public, it is really a guessing game now. At the very least, you can now have
 some data-driven guesses to share your own attribution story to the press.
 
