@@ -20,7 +20,7 @@ breach actor (such as "organized crime", "activitst", "state-sponsored", etc.).
 You can review (and tweak if you like) the breach info on [freqs.csv](https://github.com/blackfist/sonyhack/blob/master/freqs.csv).
 
 We also do a similar likelihood estimation on reported origin countries of the attacks.
-Vou can also review this information on [countries.csv](https://github.com/blackfist/sonyhack/blob/master/countries.csv)
+Vou can also review this information on [countries.csv](https://github.com/blackfist/sonyhack/blob/master/countries.csv).
 
 Since it is unlikely that any further evidence on this case will not be released
 to the public, it is really a guessing game now. At the very least, you can now have
