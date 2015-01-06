@@ -31,7 +31,7 @@
       out of <%= @country['long_name'] %> is responsible for the data breach
       impacting Sony Pictures Entertainment.
 
-      <% if ['State-affiliated','Nation-state'].include?(@actor['variety']) and @country['abr'] == "NK" %>
+      <% if ['State-affiliated','Nation-state'].include?(@actor['variety']) and @country['abr'] == "KR" %>
         <%= erb :totally_korea %>
       <% else %>
         <%= erb :not_korea %>
