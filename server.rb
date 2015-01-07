@@ -57,7 +57,7 @@ SECURITY_VENDORS = ["Verizon", "Norse", "Crowdstrike",
   "McAfee", "Symantec", "Kaspersky Labs", "Palo Alto Networks",
   "Fortinet", "iSIGHT Partners", "Check Point", "Arbor Networks",
   "Qualys", "Trend Micro", "Veracode", "RSA", "Cylance", "F-Secure",
-  "Proofpoint", "Microsoft"]
+  "Proofpoint", "Microsoft", "Sophos", "Adallom", "AlienVault", "Secunia", "Cyphort"]
 
 MONTHS = ["January", "February", "March", "April", "May", "June", "July",
   "August", "September", "October", "November", "December"]
